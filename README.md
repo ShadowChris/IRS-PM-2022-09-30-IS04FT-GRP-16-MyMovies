@@ -1,8 +1,8 @@
 
 ## SECTION 1 : PROJECT TITLE
-## My Movies——Intelligent Movie Recommendation System
+## My Movies: Intelligent Movie Recommendation System
 
-<img src="./Miscellaneous/My Movies.jpg" alt="My Movies" style="zoom:80%;" />
+<img src="./Miscellaneous/imgs/poster.png" alt="My Movies" style="zoom:60%;" />
 
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
@@ -24,11 +24,13 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 ---
 
-## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
+## SECTION 4 : VIDEO OF PROMOTION & SYSTEM MODELLING
 
-[Promotion Video](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be)
 
-[More Videos](./Video/)
+
+[![My Movies](./Miscellaneous/imgs/My Movies.jpg)](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be "My Movies-Promotion")
+
+[More Videos...](./Video/)
 
 
 ---
@@ -146,4 +148,12 @@ ETL (Extract-Transform-Load), which is used to describe a series of processing p
 
 * Original data is from movielens small latest
 * Movie details retrieved from IMDB/TMDB website using web crawler
+
+### references
+
+* a folder of reference materials for developing our system
+
+### imgs
+
+* a folder of some imgs shown in README.md
 
