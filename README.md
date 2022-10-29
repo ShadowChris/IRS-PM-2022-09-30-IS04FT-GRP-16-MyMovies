@@ -28,7 +28,8 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 
 
-[![My Movies](Miscellaneous/imgs/My Movies.jpg)](https://www.youtube.com/watch?v=VdKshV3IQrc "My Movies-Promotion")
+[![My Movies](https://github.com/ShadowChris/IRS-PM-2022-09-30-IS04FT-GRP-16-MyMovies/blob/master/Miscellaneous/imgs/My%20Movies.jpg?raw=true)](https://www.youtube.com/watch?v=VdKshV3IQrc "My Movies-Promotion")
+
 
 
 
