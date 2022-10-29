@@ -16,8 +16,8 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 | :------------    |:---------------:| :-----| :-----|
 | LU QINWEN| A0261847W | Dispatch the tasks to my teammates fluently;Build a high-performance Go back-end server;Search and study the recommendation algorithm(CB\CL), get them known by my teammates.| e0983241@u.nus.edu|
 | HU ZHIQING    | A0261637B | Learn and research content-based recommendation algorithms and collaborative filtering algorithms and perform model evaluation;Conduct market research and business analysis and project report| e0983031@u.nus.edu|
-| YU HANCHUN    | A0261716E | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| e0983110@u.nus.edu|
-| CAI ZIMO      | A0261628B | data collection, front-end web page development and back-end server development| zimocai06@u.nus.edu|
+| YU HANCHUN    | A0261716E | Use Vue framework to realize Front-end design, reactive data binding and composed view components with backend, video production and editing | e0983110@u.nus.edu|
+| CAI ZIMO      | A0261628B | Data collection, front-end web page development,  back-end server development: Spring Boot server and Flask server, and dealt with the interation between two servers | zimocai06@u.nus.edu|
 
 
 ---
@@ -41,8 +41,9 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 (3) Verify that you've installed Go by opening a command prompt and typing the following command: $ go version
 
+1.2 Python server configuration 
 
-1.2 Python server configuration For simplifying the configuration process of our system, we used Flask framework and deployed the python-based server for recommendation-related service in Google Colaboratory. The configuration steps are as follows: 
+For simplifying the configuration process of our system, we used Flask framework and deployed the python-based server for recommendation-related service in Google Colaboratory. The configuration steps are as follows: 
 
 (1) Register and sign in google account and upload the project files to the google drive
 
@@ -133,6 +134,12 @@ ETL (Extract-Transform-Load), which is used to describe a series of processing p
 
 `Refer to Github Folder: Miscellaneous`
 
-### Rating.xlsx
+### Rating.csv
 * User data collected by Spider/System/Open source data set
 * Including millions of movies and some useful user data
+
+### Movies.csv
+
+* Original data is from movielens small latest
+* Movie details retrieved from IMDB/TMDB website using web crawler
+
