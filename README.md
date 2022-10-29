@@ -2,6 +2,8 @@
 ## SECTION 1 : PROJECT TITLE
 ## My Movies——Intelligent Movie Recommendation System
 
+<img src="./Miscellaneous/My Movies.jpg" alt="My Movies" style="zoom:80%;" />
+
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
 With the rapid development of the economy, movies have entered people's lives and are loved and welcomed by the masses. We enjoy the fun of movie boost and suffer from picking one movie to watch at the same time since all of us must be familiar with the scene: Endlessly scrolling through Netflix, watching trails on YouTube, looking up IMDb ratings, wasting half an hour and still cannot decide what to watch. Although there are various video websites, most of them are piled up with popular information and lack of personalized recommendations. It is difficult for users, especially those who suffer from decidophobia, to find movies that meet their personal interests and tastes. 
@@ -24,7 +26,9 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-[veido address](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be)
+[Promotion Video](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be)
+
+[More Videos](./Video/)
 
 
 ---
