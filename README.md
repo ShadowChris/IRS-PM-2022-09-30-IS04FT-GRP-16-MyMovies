@@ -2,7 +2,7 @@
 ## SECTION 1 : PROJECT TITLE
 ## My Movies: Intelligent Movie Recommendation System
 
-<img src="./Miscellaneous/imgs/poster.png" alt="My Movies" style="zoom:40%;" />
+<img src="./Miscellaneous/imgs/poster.png" alt="My Movies" style="zoom:20%;" />
 
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
