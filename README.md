@@ -28,7 +28,9 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 
 
-[![My Movies](./Miscellaneous/imgs/My Movies.jpg)](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be "My Movies-Promotion")
+[![My Movies](./Miscellaneous/imgs/My Movies.jpg)](https://www.youtube.com/watch?v=VdKshV3IQrc "My Movies-Promotion")
+
+
 
 [More Videos...](./Video/)
 
