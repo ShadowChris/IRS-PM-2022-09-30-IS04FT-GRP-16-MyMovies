@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="85a3dce3-c2dd-44d2-b695-6756c15fb856" name="Default Changelist" comment="cookie done">
+      <change beforePath="$PROJECT_DIR$/go_server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/go_server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go_server/modules/app/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/go_server/modules/app/login.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///opt/homebrew/Cellar/go/1.17.8/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="2FWXSNxzIEXNeUAKJFyoCtgz549" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/go_server/models" />
+      <recent name="$PROJECT_DIR$/go_server/.idea" />
+      <recent name="$PROJECT_DIR$/go_server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build go-sso ">
+    <configuration name="go build go-sso " type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="go_server" />
+      <working_directory value="$PROJECT_DIR$/go_server" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/go_server/main.go" />
+      <package value="go-sso" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build go-sso" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-sso" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="go-sso" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build go-sso " />
+        <item itemvalue="Go Build.go build go-sso" />
+        <item itemvalue="Go Build.go build go-sso" />
+        <item itemvalue="Go Build.go build go-sso " />
+        <item itemvalue="Go Build.go build go-sso" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test ignore" />
+    <MESSAGE value="delete ignore" />
+    <MESSAGE value="insert done" />
+    <MESSAGE value="cookie done" />
+    <option name="LAST_COMMIT_MESSAGE" value="cookie done" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/api/user/index.go</url>
+          <line>160</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/modules/app/login.go</url>
+          <line>54</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/cache/redis.go</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
