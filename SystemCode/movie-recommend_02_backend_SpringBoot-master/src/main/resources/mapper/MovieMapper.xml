@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.issgroup16.movierecommend.mapper.MovieMapper">
+
+    <resultMap id="BaseResultMap" type="com.issgroup16.movierecommend.model.entity.Movie">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="time" column="time" jdbcType="VARCHAR"/>
+        <result property="genre" column="genre" jdbcType="VARCHAR"/>
+        <result property="releaseTime" column="release_time" jdbcType="VARCHAR"/>
+        <result property="intro" column="intro" jdbcType="VARCHAR"/>
+        <result property="directors" column="directors" jdbcType="VARCHAR"/>
+        <result property="stars" column="stars" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="DTOResultMap" type="com.issgroup16.movierecommend.model.dto.MovieDTO">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="time" column="time" jdbcType="VARCHAR"/>
+        <result property="genre" column="genre" jdbcType="VARCHAR"/>
+        <result property="releaseTime" column="release_time" jdbcType="VARCHAR"/>
+        <result property="intro" column="intro" jdbcType="VARCHAR"/>
+        <result property="directors" column="directors" jdbcType="VARCHAR"/>
+        <result property="stars" column="stars" jdbcType="VARCHAR"/>
+        <result property="rating" column="avg_rating" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,name,url,
+        time,genre,release_time,intro,directors,writers,stars,
+        remark,created_user,
+        created_time,updated_user,updated_time
+    </sql>
+    <insert id="insertSelective"
+            parameterType="com.issgroup16.movierecommend.model.vo.MovieVO">
+        insert into movies
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            name,
+            <if test="url != null">
+                url,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="genre != null">
+                genre,
+            </if>
+            <if test="releaseTime != null">
+                release_time,
+            </if>
+            <if test="intro != null">
+                intro,
+            </if>
+            <if test="directors != null">
+                directors,
+            </if>
+            <if test="writers != null">
+                writers,
+            </if>
+            <if test="stars != null">
+                stars,
+            </if>
+
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createdUser != null">
+                created_user,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="updatedUser != null">
+                updated_user,
+            </if>
+            <if test="updatedTime != null">
+                updated_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id},
+            #{name},
+            <if test="url != null">
+                #{url},
+            </if>
+            <if test="time != null">
+                #{time},
+            </if>
+            <if test="genre != null">
+                #{genre},
+            </if>
+            <if test="releaseTime != null">
+                #{releaseTime},
+            </if>
+            <if test="intro != null">
+                #{intro},
+            </if>
+            <if test="directors != null">
+                #{directors},
+            </if>
+            <if test="writers != null">
+                #{writers},
+            </if>
+            <if test="stars != null">
+                #{stars},
+            </if>
+
+
+            <if test="remark != null">
+                #{remark},
+            </if>
+            <if test="createdUser != null">
+                #{created_user},
+            </if>
+            <if test="createdTime != null">
+                #{created_time},
+            </if>
+            <if test="updatedUser != null">
+                #{updated_user},
+            </if>
+            <if test="updatedTime != null">
+                #{updated_time},
+            </if>
+        </trim>
+        <selectKey resultType="java.lang.Integer" keyProperty="userId" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <select id="selectMovieDetailsById" resultType="com.issgroup16.movierecommend.model.dto.MovieDTO"
+            resultMap="DTOResultMap" parameterType="String">
+        select <include refid="Base_Column_List"></include>, avg_rating
+        from movies
+        left join
+        (
+        select movie_id, round(avg(rating),2) avg_rating
+        from ratings
+        where movie_id = #{id}
+        ) movie_rating
+        on movie_id = movies.id
+        where id = #{id}
+
+    </select>
+
+<!--    deprecated，use selectMoviesByPage-->
+    <select id="selectMovies"
+            resultMap="DTOResultMap"
+            parameterType="com.issgroup16.movierecommend.model.vo.MovieVO">
+        select
+        id,name,url,genre,release_time,directors,writers,stars,avg_rating
+        from movies
+        left join
+        (
+        select movie_id, round(avg(rating),2) avg_rating
+        from ratings
+        group by movie_id
+        ) movie_rating
+        on movies.id = movie_rating.movie_id
+        <where>
+
+            <if test="name != null and name != '' ">
+                and name like CONCAT('%', #{name}, '%')
+            </if>
+            <if test="genre != null and genre != '' ">
+                and genre like CONCAT('%', #{genre}, '%')
+            </if>
+            <if test="releaseTime != null and releaseTime != '' ">
+                and release_time like CONCAT('%', #{releaseTime}, '%')
+            </if>
+            <if test="directors != null and directors != '' ">
+                and directors like CONCAT('%', #{directors}, '%')
+            </if>
+
+            <if test="writers != null and writers != '' ">
+                and writers like CONCAT('%', #{writers}, '%')
+            </if>
+            <if test="stars != null and stars != '' ">
+                and stars like CONCAT('%', #{stars}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMoviesByList"
+            resultType="com.issgroup16.movierecommend.model.dto.MovieDTO"
+            resultMap="DTOResultMap"
+    >
+        select *, avg_rating from movies
+        left join
+        (
+        select movie_id, round(avg(rating),2) avg_rating
+        from ratings
+        group by movie_id
+        ) movie_rating
+        on movies.id = movie_rating.movie_id
+
+        where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="selectMoviesByPage"
+            resultMap="DTOResultMap">
+
+        select id,
+               name,
+               url,
+               genre,
+               release_time,
+               directors,
+               writers,
+               stars,
+               avg_rating
+        from (
+            select * from movies
+            <where>
+
+                <if test="vo.name != null and vo.name != '' ">
+                    and name like CONCAT('%', #{vo.name}, '%')
+                </if>
+                <if test="vo.genre != null and vo.genre != '' ">
+                    and genre like CONCAT('%', #{vo.genre}, '%')
+                </if>
+                <if test="vo.releaseTime != null and vo.releaseTime != '' ">
+                    and release_time like CONCAT('%', #{vo.releaseTime}, '%')
+                </if>
+                <if test="vo.directors != null and vo.directors != '' ">
+                    and directors like CONCAT('%', #{vo.directors}, '%')
+                </if>
+
+                <if test="vo.writers != null and vo.writers != '' ">
+                    and writers like CONCAT('%', #{vo.writers}, '%')
+                </if>
+                <if test="vo.stars != null and vo.stars != '' ">
+                    and stars like CONCAT('%', #{vo.stars}, '%')
+                </if>
+            </where>
+            order by id
+            LIMIT #{limit} OFFSET #{offset}) movies_page
+        left join
+        (
+                select movie_id, round(avg(rating),2) avg_rating
+                from ratings
+                group by movie_id
+        ) movie_rating
+        on movies_page.id = movie_rating.movie_id
+
+    </select>
+    <select id="selectSampleMovies"
+            resultMap="DTOResultMap"
+            parameterType="com.issgroup16.movierecommend.model.vo.MovieVO">
+        select id,
+               name,
+               url,
+               genre,
+               release_time,
+               directors,
+               writers,
+               stars
+        from movies limit 3;
+    </select>
+    <select id="selectMovieNum" resultType="Integer">
+        select count(*) from movies
+        <where>
+
+            <if test="name != null and name != '' ">
+                and name like CONCAT('%', #{name}, '%')
+            </if>
+            <if test="genre != null and genre != '' ">
+                and genre like CONCAT('%', #{genre}, '%')
+            </if>
+            <if test="releaseTime != null and releaseTime != '' ">
+                and release_time like CONCAT('%', #{releaseTime}, '%')
+            </if>
+            <if test="directors != null and directors != '' ">
+                and directors like CONCAT('%', #{directors}, '%')
+            </if>
+
+            <if test="writers != null and writers != '' ">
+                and writers like CONCAT('%', #{writers}, '%')
+            </if>
+            <if test="stars != null and stars != '' ">
+                and stars like CONCAT('%', #{stars}, '%')
+            </if>
+        </where>
+;
+    </select>
+
+</mapper>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.issgroup16.movierecommend.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.issgroup16.movierecommend.model.entity.User">
+            <id property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="CHAR"/>
+            <result property="md5Salt" column="md5_salt" jdbcType="CHAR"/>
+            <result property="gender" column="gender" jdbcType="INTEGER"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="avatarUrl" column="avatar_url" jdbcType="VARCHAR"/>
+            <result property="sessionId" column="session_id" jdbcType="VARCHAR"/>
+            <result property="expiredDate" column="expired_date" jdbcType="TIMESTAMP"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+            <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="DTOResultMap" type="com.issgroup16.movierecommend.model.dto.UserDTO">
+        <id property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="CHAR"/>
+        <result property="md5Salt" column="md5_salt" jdbcType="CHAR"/>
+        <result property="gender" column="gender" jdbcType="INTEGER"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="avatarUrl" column="avatar_url" jdbcType="VARCHAR"/>
+        <result property="sessionId" column="session_id" jdbcType="VARCHAR"/>
+        <result property="expiredDate" column="expired_date" jdbcType="TIMESTAMP"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,user_name,password,
+        md5_salt,gender,email,
+        phone,avatar_url,session_id,
+        expired_date,remark,created_user,
+        created_time,updated_user,updated_time
+    </sql>
+    <insert id="insertSelective"
+            parameterType="com.issgroup16.movierecommend.model.vo.UserVO"
+
+    >
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            user_id,
+            user_name,
+            <if test="password != null">
+                password,
+            </if>
+            <if test="md5Salt != null">
+                md5_salt,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="avatarUrl != null">
+                avatar_url,
+            </if>
+            session_id,
+            expired_date,
+
+
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createdUser != null">
+                created_user,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="updatedUser != null">
+                updated_user,
+            </if>
+            <if test="updatedTime != null">
+                updated_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{userId},
+            #{userName},
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="md5Salt != null">
+                #{md5Salt},
+            </if>
+            <if test="gender != null">
+                #{gender},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="avatarUrl != null">
+                #{avatarUrl},
+            </if>
+            #{sessionId},
+            #{expiredDate},
+
+
+            <if test="remark != null">
+                #{remark},
+            </if>
+            <if test="createdUser != null">
+                #{created_user},
+            </if>
+            <if test="createdTime != null">
+                #{created_time},
+            </if>
+            <if test="updatedUser != null">
+                #{updated_user},
+            </if>
+            <if test="updatedTime != null">
+                #{updated_time},
+            </if>
+        </trim>
+#       同一个客户端同时操作2个表时，LAST_INSERT_ID()会返回最后操作表的ID。
+#       低频操作下可稳定返回userid，若同时操作表，该方法可能会出错。
+#       若出现相关需求，可再使用user_name字段进行辅助查询
+        <selectKey resultType="java.lang.Integer" keyProperty="userId" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <update id="updateExpiredDateBySecond">
+        update user
+        set expired_date = date_add(expired_date, interval #{second} second)
+        where user_id = #{userId};
+    </update>
+    <update id="updateExpiredDateByDay">
+        update user
+        set expired_date = date_add(expired_date, interval #{day} day)
+        where user_id = #{userId};
+    </update>
+    <select id="selectUserByUserId" resultType="com.issgroup16.movierecommend.model.dto.UserDTO"
+            resultMap="DTOResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List"></include>
+        from user
+        <where>
+            user_id = #{userId}
+        </where>
+
+    </select>
+</mapper>

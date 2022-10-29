@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.issgroup16.movierecommend.mapper.WechatAuthMapper">
+    <resultMap id="BaseResultMap" type="com.issgroup16.movierecommend.model.entity.WechatAuth">
+        <id property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="openid" column="openid" jdbcType="VARCHAR"/>
+        <result property="sessionKey" column="session_key" jdbcType="VARCHAR"/>
+        <result property="unionid" column="unionid" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="DTOResultMap" type="com.issgroup16.movierecommend.model.dto.WechatAuthDTO">
+        <id property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="openid" column="openid" jdbcType="VARCHAR"/>
+        <result property="sessionKey" column="session_key" jdbcType="VARCHAR"/>
+        <result property="unionid" column="unionid" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createdUser" column="created_user" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedUser" column="updated_user" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_id, openid, session_key, unionid, remark, created_user,
+        created_time, updated_user, updated_time
+    </sql>
+
+    <select id="selectWechatAuthByOpenid" resultMap="DTOResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List"></include>
+        from wechat_auth
+        <where>
+            openid = #{openid}
+        </where>
+    </select>
+    <insert id="insertSelective"
+            parameterType="com.issgroup16.movierecommend.model.vo.WechatAuthVO">
+        insert into wechat_auth
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            user_id,
+            openid,
+            session_key,
+            <if test="unionid != null">
+                unionid,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createdUser != null">
+                created_user,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="updatedUser != null">
+                updated_user,
+            </if>
+            <if test="updatedTime != null">
+                updated_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{userId},
+            #{openid},
+            #{sessionKey},
+            <if test="unionid != null">
+                #{unionid},
+            </if>
+            <if test="remark != null">
+                #{remark},
+            </if>
+            <if test="createdUser != null">
+                #{created_user},
+            </if>
+            <if test="createdTime != null">
+                #{created_time},
+            </if>
+            <if test="updatedUser != null">
+                #{updated_user},
+            </if>
+            <if test="updatedTime != null">
+                #{updated_time},
+            </if>
+        </trim>
+    </insert>
+</mapper>
