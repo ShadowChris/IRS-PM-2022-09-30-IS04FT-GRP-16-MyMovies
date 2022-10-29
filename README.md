@@ -24,7 +24,7 @@ So this project takes this as an opportunity to integrate multiple recommendatio
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-[veido address](https://www.youtube.com/watch?v=VdKshV3IQrc)
+[veido address](https://www.youtube.com/watch?v=VdKshV3IQrc&feature=youtu.be)
 
 
 ---
